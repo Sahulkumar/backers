@@ -271,3 +271,4 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         return message;
     }
 }
+
