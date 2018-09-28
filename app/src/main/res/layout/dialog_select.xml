@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingBottom="20dp"
+    >
+
+    <com.backers.backers.CustomFontTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="@color/toobar"
+        android:textColor="@color/md_white_1000"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="Please Select"/>
+
+    <com.backers.backers.CustomFontTextView
+        android:id="@+id/usenfc"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_select"
+        android:textColor="@color/toobar"
+        android:textSize="20dp"
+        android:text="USE NFC"/>
+
+    <com.backers.backers.CustomFontTextView
+        android:id="@+id/qrcode"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usenfc"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_select"
+        android:textColor="@color/toobar"
+        android:textSize="20dp"
+        android:text="QR Code"/>
+
+
+</RelativeLayout>

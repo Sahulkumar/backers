@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <com.backers.backers.CustomFontTextView
+        android:id="@+id/review_read_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/review_list"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/heart"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:onClick="viewAllReview"
+        android:text="Read All"/>
+
+</RelativeLayout>

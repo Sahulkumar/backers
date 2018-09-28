@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.backers.backers.ProductActivity">
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toobar"
+        android:elevation="4dp"
+        app:titleTextColor="@color/md_white_1000"
+        app:subtitleTextColor="@color/md_white_1000"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:orientation="horizontal"
+            android:showDividers="end">
+
+            <com.backers.backers.CustomFontTextView
+                android:id="@+id/setting"
+                style="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                android:text="Product"
+                android:textStyle="bold"
+                android:textColor="@color/md_white_1000" />
+
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/product"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                card_view:cardBackgroundColor="@color/toobar"
+                card_view:cardElevation="5dp"
+                card_view:cardCornerRadius="0dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/product_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        />
+
+                    <com.backers.backers.CustomFontTextView
+                        android:id="@+id/product_name"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/product_image"
+                        android:textColor="@color/md_white_1000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:textSize="20sp"
+                        android:text="name"/>
+                    <com.backers.backers.CustomFontTextView
+                        android:id="@+id/warranty_left_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_below="@id/product_name"
+                        android:textColor="@color/md_white_1000"
+                        android:textSize="20sp"
+                        android:text="Warranty Left: "/>
+                    <com.backers.backers.CustomFontTextView
+                        android:id="@+id/warranty_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/product_name"
+                        android:layout_toRightOf="@id/warranty_left_title"
+                        android:textColor="@color/md_white_1000"
+                        android:textSize="20sp"
+                        android:text="days"/>
+                    <com.backers.backers.CustomFontTextView
+                        android:id="@+id/product_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/warranty_left"
+                        android:textColor="@color/md_white_1000"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:textSize="20sp"
+                        android:text="detail"/>
+                    <com.backers.backers.CustomFontTextView
+                        android:id="@+id/more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/product_detail"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/heart"
+                        android:layout_margin="10dp"
+                        android:textSize="20sp"
+                        android:onClick="readMore"
+                        android:text="Read More"/>
+
+
+                    <com.like.LikeButton
+                        app:icon_type="heart"
+                        app:icon_size="25dp"
+                        app:like_drawable="@mipmap/heart"
+                        app:unlike_drawable="@mipmap/heart_grey"
+                        app:circle_start_color="@color/heart"
+                        app:circle_end_color="@color/heart"
+                        app:dots_primary_color="@color/heart"
+                        app:dots_secondary_color="@color/heart"
+                        app:anim_scale_factor="2"
+                        android:id="@+id/like"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/product_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/review"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/gray"
+                card_view:cardElevation="5dp"
+                card_view:cardCornerRadius="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.backers.backers.FitHeightListView
+                        android:id="@+id/review_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:background="@color/md_white_1000">
+
+                    </com.backers.backers.FitHeightListView>
+
+
+                    <com.backers.backers.CustomFontTextView
+                        android:id="@+id/write_review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/review_list"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/toobar"
+                        android:layout_margin="10dp"
+                        android:textSize="20sp"
+                        android:onClick="writeReview"
+                        android:text="Write Review"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/faq"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/gray"
+                card_view:cardElevation="5dp"
+                card_view:cardCornerRadius="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.backers.backers.FitHeightListView
+                        android:id="@+id/faq_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:background="@color/md_white_1000">
+
+                    </com.backers.backers.FitHeightListView>
+
+
+                    <com.backers.backers.CustomFontTextView
+                        android:id="@+id/ask_support"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/faq_list"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/toobar"
+                        android:layout_margin="10dp"
+                        android:textSize="20sp"
+                        android:onClick="askSupport"
+                        android:text="Ask for support"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
