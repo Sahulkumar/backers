@@ -2,8 +2,13 @@
     <string name="app_name">Backers</string>
     <!--786995944803377-->
 
-    <string name="facebook_app_id">1784573581851060</string>
-    <string name="fb_login_protocol_scheme">fb1784573581851060</string>
+    <!--<string name="facebook_app_id">1784573581851060</string>
+    <string name="fb_login_protocol_scheme">fb1784573581851060</string>-->
+
+    <!--November 2-->
+
+    <string name="facebook_app_id">332059260706829</string>
+    <string name="fb_login_protocol_scheme">fb332059260706829</string>
 
     <string name="youAreNotUpdatedTitle">Update Available</string>
     <string name="youAreNotUpdatedMessage">A new version of BACKERS is available. Please update to version\s</string>
