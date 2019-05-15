@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "217457847200-nvid2jqejnnl5576dj2q8gh30nick16m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.backers.backers",
+            "certificate_hash": "685d43612c318ecda6dad3a180c2901536e8c1ac"
+          }
+        },
+        {
           "client_id": "217457847200-ndk3vsqhs7cjgb16a7loa6bt883lu5gr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

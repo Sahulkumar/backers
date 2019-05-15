@@ -60,8 +60,13 @@
 
         <activity
             android:name="com.backers.backers.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name="com.backers.backers.LoginActivity">
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.backers.backers.LoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -70,6 +75,8 @@
         </activity>
         <activity
             android:name="com.backers.backers.FacebookLoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -82,46 +89,68 @@
         </activity>
         <activity
             android:name="com.backers.backers.GoogleLoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.backers.backers.NewTicketActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
         <activity
             android:name="com.backers.backers.RegisterActivity"
+            android:configChanges="orientation"
             android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
         <activity
             android:name="com.backers.backers.RegisterSuccessActivity"
             android:theme="@style/AppTheme2" />
         <activity
             android:name="com.backers.backers.RegisterFailActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
         <activity
             android:name="com.backers.backers.NfcActivity"
+            android:configChanges="orientation"
             android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
         <activity
             android:name="com.backers.backers.ProductActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
         <activity
             android:name="com.backers.backers.WriteReviewActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
         <activity
             android:name="com.backers.backers.ReplyTicketActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
         <activity
             android:name="com.backers.backers.TicketActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="252ec9471b7c5f0351faf4da430e484f9d3c1b27" />
 
-        <activity android:name="com.backers.backers.AddProductActivity"></activity>
+        <activity
+            android:name="com.backers.backers.AddProductActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
