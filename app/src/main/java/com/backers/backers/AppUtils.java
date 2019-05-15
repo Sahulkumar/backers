@@ -69,4 +69,14 @@ public class AppUtils {
     public static void showShortToast(Context context, String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
+
+    public static void showDialog(final Context context, String text) {
+        dialog = ProgressDialog.show(context, "", text);
+    }
+
+    public static void dismissDialog() {
+        if (dialog != null) {
+            dialog.dismiss();
+        }
+    }
 }

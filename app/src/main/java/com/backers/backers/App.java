@@ -15,7 +15,8 @@ public class App extends Application{
     //public static final String SERVER_URL="http://backersapp.air-button.com";
 
     //public static final String SERVER_URL = "http://35.165.7.243/backers";
-    public static final String SERVER_URL = "http://54.212.215.106/backers";
+    //public static final String SERVER_URL = "http://54.212.215.106/backers"; // changed on may 14
+    public static final String SERVER_URL = "http://care.luna2.co/backers"; // changed on may 14
     public SharedPreferences setting;
 
 

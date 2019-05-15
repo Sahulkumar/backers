@@ -1,7 +1,5 @@
 package com.backers.backers.json;
 
-import java.util.ArrayList;
-
 /**
  * Created by so on 2017-08-10.
  */

@@ -1,9 +1,7 @@
 package com.backers.backers;
 
 import android.content.Context;
-import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.widget.ListView;
 

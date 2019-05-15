@@ -3,7 +3,6 @@ package com.backers.backers;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 /**
  * Created by so on 2017-07-28.
