@@ -43,12 +43,12 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!--<uses-permission android:name="android.permission.SEND_SMS" />-->
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="net.dinglisch.android.tasker.PERMISSION_RUN_TASKS" />
 
     <application
-        android:name=".App"
+        android:name="com.backers.backers.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -59,9 +59,9 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.backers.backers.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name="com.backers.backers.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,7 +69,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FacebookLoginActivity"
+            android:name="com.backers.backers.FacebookLoginActivity"
             android:theme="@style/AppTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -81,47 +81,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GoogleLoginActivity"
+            android:name="com.backers.backers.GoogleLoginActivity"
             android:theme="@style/AppTheme2" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity
-            android:name=".NewTicketActivity"
+            android:name="com.backers.backers.NewTicketActivity"
             android:theme="@style/AppTheme2" />
         <activity
-            android:name=".RegisterActivity"
+            android:name="com.backers.backers.RegisterActivity"
             android:noHistory="true"
             android:theme="@style/AppTheme2" />
         <activity
-            android:name=".RegisterSuccessActivity"
+            android:name="com.backers.backers.RegisterSuccessActivity"
             android:theme="@style/AppTheme2" />
         <activity
-            android:name=".RegisterFailActivity"
+            android:name="com.backers.backers.RegisterFailActivity"
             android:theme="@style/AppTheme2" />
         <activity
-            android:name=".NfcActivity"
+            android:name="com.backers.backers.NfcActivity"
             android:noHistory="true"
             android:theme="@style/AppTheme2" />
         <activity
-            android:name=".ProductActivity"
+            android:name="com.backers.backers.ProductActivity"
             android:theme="@style/AppTheme2" />
         <activity
-            android:name=".WriteReviewActivity"
+            android:name="com.backers.backers.WriteReviewActivity"
             android:theme="@style/AppTheme2" />
         <activity
-            android:name=".ReplyTicketActivity"
+            android:name="com.backers.backers.ReplyTicketActivity"
             android:theme="@style/AppTheme2" />
         <activity
-            android:name=".TicketActivity"
+            android:name="com.backers.backers.TicketActivity"
             android:theme="@style/AppTheme2" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="252ec9471b7c5f0351faf4da430e484f9d3c1b27" />
 
-        <activity android:name=".AddProductActivity"></activity>
+        <activity android:name="com.backers.backers.AddProductActivity"></activity>
     </application>
 
 </manifest>

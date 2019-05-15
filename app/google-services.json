@@ -15,8 +15,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "217457847200-j07epdbg9t1e9t882jnhvp6uo3or7vb7.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "217457847200-ndk3vsqhs7cjgb16a7loa6bt883lu5gr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.backers.backers",
+            "certificate_hash": "7edae689a83cc429fd2f0d969bb42fb940fc6a91"
+          }
         },
         {
           "client_id": "217457847200-a8fbkelv9cb6jp7s4toi85t6o36g5akg.apps.googleusercontent.com",
@@ -27,7 +31,7 @@
           }
         },
         {
-          "client_id": "217457847200-98q2vj007g8tp93gk44klp35o9nn1mrs.apps.googleusercontent.com",
+          "client_id": "217457847200-j07epdbg9t1e9t882jnhvp6uo3or7vb7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -37,27 +41,20 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
+            {
+              "client_id": "217457847200-j07epdbg9t1e9t882jnhvp6uo3or7vb7.apps.googleusercontent.com",
+              "client_type": 3
+            },
             {
               "client_id": "217457847200-httev6bfmus8b4p2r1fi7c2s3n316p2q.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "backerstores.backer"
               }
-            },
-            {
-              "client_id": "217457847200-j07epdbg9t1e9t882jnhvp6uo3or7vb7.apps.googleusercontent.com",
-              "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

@@ -1,10 +1,8 @@
 package com.backers.backers;
 
-import android.app.Activity;
-import android.app.Application;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -12,6 +10,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -20,12 +19,7 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.google.gson.Gson;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,6 +30,7 @@ public class FacebookLoginActivity extends AppCompatActivity {
     App app;
     String token = "";
     LoginButton loginButton;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +45,7 @@ public class FacebookLoginActivity extends AppCompatActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-
+                dialog = ProgressDialog.show(FacebookLoginActivity.this, "", "Authenticating");
                 int i = 0;
                 token = loginResult.getAccessToken().getToken();
                 Log.v("0000", "onsuccess");
@@ -65,7 +60,7 @@ public class FacebookLoginActivity extends AppCompatActivity {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-
+                                dialog.dismiss();
 
                                 Log.v("0000", "onsuccess");
                                 Log.v("0000", response);
@@ -82,6 +77,8 @@ public class FacebookLoginActivity extends AppCompatActivity {
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
+                                dialog.dismiss();
+                                AppUtils.showShortToast(FacebookLoginActivity.this, "Login Failed");
                                 Log.v("0000", "VolleyError:" + error.getMessage());
                             }
                         }
@@ -93,6 +90,24 @@ public class FacebookLoginActivity extends AppCompatActivity {
                         return map;
                     }
                 };
+                stringRequest.setRetryPolicy(new RetryPolicy() {
+                    @Override
+                    public int getCurrentTimeout() {
+                        return 50000;
+                    }
+
+                    @Override
+                    public int getCurrentRetryCount() {
+                        return 50000;
+                    }
+
+                    @Override
+                    public void retry(VolleyError error) throws VolleyError {
+                        dialog.dismiss();
+                        AppUtils.showShortToast(FacebookLoginActivity.this, "Login Failed");
+                        Log.v("0000", "VolleyError:" + error.getMessage());
+                    }
+                });
 // Add the request to the RequestQueue.
                 queue.add(stringRequest);
             }

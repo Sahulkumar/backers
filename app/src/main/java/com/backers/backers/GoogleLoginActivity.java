@@ -1,8 +1,8 @@
 package com.backers.backers;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,6 +13,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
@@ -24,7 +25,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.gson.Gson;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -36,7 +36,7 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
     String idToken = "";
     App app;
     SignInButton signInButton;
-
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,10 +100,16 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
         }
+
+        //Log.v("0000", "  onActivityResult: requestCode :" + requestCode + " ->  resultCode : " + resultCode + "  -> data :" + data);
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
+            Log.v("0000", "isSuccess: " + result.getStatus());
+            Log.v("0000", "isSuccess: " + result.getSignInAccount());
+
+            dialog = ProgressDialog.show(GoogleLoginActivity.this, "", "Authenticating");
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
             String accName = acct.getEmail();
@@ -120,10 +126,12 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
                         @Override
                         public void onResponse(String response) {
                             if ("".equals(response)) {
+                                dialog.dismiss();
                                 Toast.makeText(getApplicationContext(), "Server Error", Toast.LENGTH_SHORT).show();
                                 return;
                             }
                             try {
+                                dialog.dismiss();
                                 app.setting.edit().putString("token", response).commit();
                                 app.setting.edit().putString("login_type", "google").commit();
                                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
@@ -136,6 +144,8 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
+                            dialog.dismiss();
+                            AppUtils.showShortToast(GoogleLoginActivity.this, "Login Failed");
                             Log.v("0000", "VolleyError:" + error.getMessage());
                             String json = null;
                             try {
@@ -155,11 +165,33 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
                 }
             };
 
+            stringRequest.setRetryPolicy(new RetryPolicy() {
+                @Override
+                public int getCurrentTimeout() {
+                    return 50000;
+                }
+
+                @Override
+                public int getCurrentRetryCount() {
+                    return 50000;
+                }
+
+                @Override
+                public void retry(VolleyError error) throws VolleyError {
+                    dialog.dismiss();
+                    AppUtils.showShortToast(GoogleLoginActivity.this, "Login Failed");
+                    Log.v("0000", "VolleyError:" + error.getMessage());
+                }
+            });
             queue.add(stringRequest);
 
         } else {
+
+            Log.v("0000", "else:" + result.getStatus());
+            Log.v("0000", "else:" + result.getSignInAccount());
+
             // Signed out, show unauthenticated UI.
-            //Toast.makeText(getApplicationContext(), "Login fail", Toast.LENGTH_SHORT).show();
+            AppUtils.showShortToast(GoogleLoginActivity.this, "Login Failed");
             finish();
         }
     }
